@@ -13,6 +13,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
 model User {
   id        Int      @id @default(autoincrement())
   name      String
@@ -36,6 +40,8 @@ model Product {
 
   categoryId Int
   category   Category @relation(fields: [categoryId], references: [id])
+  // category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade) Cuando se elimina el category 
+  //se eliminan los productos que esten dentro de esa categoria
   userId     Int
   user       User     @relation(fields: [userId], references: [id])
 }
