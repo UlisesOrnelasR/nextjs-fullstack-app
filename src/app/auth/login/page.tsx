@@ -1,12 +1,5 @@
-import { Card } from "@/components/ui";
-
 const LoginPage = () => {
-  return (
-    <div>
-      LoginPage
-      <Card />
-    </div>
-  );
+  return <div>LoginPage</div>;
 };
 
 export default LoginPage;
