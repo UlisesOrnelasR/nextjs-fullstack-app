@@ -9,6 +9,14 @@ export const navbarRoutes = [
     text: "Profile",
   },
   {
+    href: "/dashboard/products/new",
+    text: "Create product",
+  },
+  {
+    href: "/dashboard/categories/new",
+    text: "Create category",
+  },
+  {
     href: "/auth/login",
     text: "Login",
   },
