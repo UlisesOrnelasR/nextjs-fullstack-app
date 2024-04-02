@@ -1,16 +1,15 @@
-import { Label, Input, Button } from "@/components/ui";
+import CategoryForm from "@/components/categories/CategoryForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Create category",
+  description: "Create a new category",
+};
+
 const CategoryPage = () => {
   return (
     <div>
-      <form action="">
-        <Label>Name of category</Label>
-        <Input />
-        <Label>Description of category</Label>
-        <Input />
-        <Label>Published</Label>
-        <Input />
-        <Button className="block mt-2">Create category</Button>
-      </form>
+      <CategoryForm />
     </div>
   );
 };
