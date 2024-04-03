@@ -21,8 +21,8 @@ Table Product {
   price Float [not null]
   image String [not null]
   createdAt DateTime [default: `now()`, not null]
-  categoryId Int [not null]
-  category Category [not null]
+  categoryId Int
+  category Category
   authorId Int
   author User
 }

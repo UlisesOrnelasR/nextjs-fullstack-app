@@ -38,12 +38,12 @@ model Product {
   image       String
   createdAt   DateTime @default(now())
 
-  categoryId Int
-  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+  category   Category? @relation(fields: [categoryId], references: [id])
   // category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade) Cuando se elimina el category 
   //se eliminan los productos que esten dentro de esa categoria
   authorId   Int?
-  author     User?    @relation(fields: [authorId], references: [id])
+  author     User?     @relation(fields: [authorId], references: [id])
 }
 
 model Category {
