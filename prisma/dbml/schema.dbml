@@ -23,16 +23,18 @@ Table Product {
   createdAt DateTime [default: `now()`, not null]
   categoryId Int [not null]
   category Category [not null]
-  userId Int [not null]
-  user User [not null]
+  authorId Int
+  author User
 }
 
 Table Category {
   id Int [pk, increment]
   name String [not null]
+  description String [not null]
+  published Boolean [not null, default: false]
   products Product [not null]
 }
 
 Ref: Product.categoryId > Category.id
 
-Ref: Product.userId > User.id
+Ref: Product.authorId > User.id

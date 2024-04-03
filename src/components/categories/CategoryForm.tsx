@@ -13,9 +13,22 @@ const CategoryForm = () => {
     resolver: zodResolver(createCategorySchema),
   });
 
+  const onSubmit = handleSubmit(async (data) => {
+    console.log(data);
+
+    const res = await fetch("/api/categories", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(res);
+  });
+
   return (
     <div>
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <form onSubmit={onSubmit}>
         <Label>Name of category</Label>
         <Input {...register("name")} />
         {errors?.name && <p className="text-red-500">{errors.name.message}</p>}
