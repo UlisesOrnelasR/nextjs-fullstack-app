@@ -13,8 +13,6 @@ const CategoryForm = () => {
     resolver: zodResolver(createCategorySchema),
   });
 
-  console.log(errors);
-
   return (
     <div>
       <form onSubmit={handleSubmit((data) => console.log(data))}>
