@@ -12,10 +12,15 @@ export const createProductSchema = z.object({
       invalid_type_error: "description must be a string",
     })
     .optional(),
-  price: z.string().refine((value) => {
-    return !isNaN(parseFloat(value));
-  }),
-  imagen: z
+  price: z.string().refine(
+    (value) => {
+      return !isNaN(parseFloat(value));
+    },
+    {
+      message: "The price must be a number",
+    }
+  ),
+  image: z
     .string()
     .url({
       message: "The image should be a URL",

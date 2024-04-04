@@ -23,7 +23,8 @@ const CategoryForm = () => {
         "Content-Type": "application/json",
       },
     });
-    console.log(res);
+    const category = await res.json();
+    console.log(category);
   });
 
   return (
