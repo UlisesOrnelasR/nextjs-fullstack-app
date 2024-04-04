@@ -1,13 +1,17 @@
 "use client";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Label, Input, Button } from "@/components/ui";
+import { createProductSchema } from "@/app/schemas/productSchema";
 
 const ProductsForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: zodResolver(createProductSchema),
+  });
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
