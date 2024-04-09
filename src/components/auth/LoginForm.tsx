@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Button, Card, Input, Label } from "@/components/ui";
 import { loginSchema } from "@/app/schemas/authSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
 
 const LoginForm = () => {
   const {
@@ -13,8 +14,14 @@ const LoginForm = () => {
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
     console.log(data);
+    const result = await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    });
+    console.log(result);
   });
 
   return (

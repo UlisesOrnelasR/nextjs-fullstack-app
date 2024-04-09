@@ -12,7 +12,11 @@ export const handler = NextAuth({
         // Add logic here to look up the user from the credentials supplied
 
         console.log(credentials);
-        return null;
+        return {
+          id: 1,
+          name: "J Smith",
+          email: "jsmith@example.com",
+        };
       },
     }),
   ],
