@@ -5,11 +5,11 @@
 Table User {
   id Int [pk, increment]
   name String [not null]
-  lastname String [not null]
-  role String [not null]
+  last_name String [not null]
   email String [not null]
   password String [not null]
-  confirmed Boolean [not null]
+  role String [default: 'user']
+  confirmed_email Boolean [default: false]
   createdAt DateTime [default: `now()`, not null]
   products Product [not null]
 }

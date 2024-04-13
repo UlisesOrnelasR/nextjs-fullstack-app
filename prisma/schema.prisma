@@ -18,14 +18,14 @@ generator dbml {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  lastname  String
-  role      String
-  email     String
-  password  String
-  confirmed Boolean
-  createdAt DateTime @default(now())
+  id              Int      @id @default(autoincrement())
+  name            String
+  last_name       String
+  email           String   @unique
+  password        String
+  role            String?  @default("user")
+  confirmed_email Boolean? @default(false)
+  createdAt       DateTime @default(now())
 
   products Product[]
 }
