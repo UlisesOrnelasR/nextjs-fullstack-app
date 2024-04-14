@@ -11,6 +11,11 @@ export const navbarRoutes = [
     auth: true,
   },
   {
+    href: "/dashboard/products",
+    text: "Products",
+    auth: true,
+  },
+  {
     href: "/dashboard/products/new",
     text: "Create product",
     auth: true,

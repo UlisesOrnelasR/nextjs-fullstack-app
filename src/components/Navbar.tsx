@@ -23,7 +23,9 @@ const Navbar = async () => {
                   </li>
                 )
             )}
-            <li>Hi {session?.user?.name}!</li>
+            <li>
+              Hi {session?.user?.name} {session?.user?.last_name}!
+            </li>
           </>
         )}
         {!session &&

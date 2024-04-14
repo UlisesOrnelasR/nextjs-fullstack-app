@@ -42,6 +42,11 @@ const ProductsForm = () => {
         {errors?.price && (
           <p className="text-red-500">{errors.price.message}</p>
         )}
+        <Label>Category of product</Label>
+        <Input {...register("category")} />
+        {errors?.category && (
+          <p className="text-red-500">{errors.category.message}</p>
+        )}
         <Label>Image of product</Label>
         <Input {...register("image")} />
         {errors?.image && (
