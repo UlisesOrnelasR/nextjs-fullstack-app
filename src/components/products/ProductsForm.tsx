@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Label, Input, Button } from "@/components/ui";
-import { createProductSchema } from "@/app/schemas/productSchema";
+import { createProductSchema } from "@/schemas/productSchema";
 
 const ProductsForm = () => {
   const {

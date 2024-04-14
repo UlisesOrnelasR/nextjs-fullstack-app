@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Label, Input, Button } from "@/components/ui";
-import { createCategorySchema } from "@/app/schemas/categorySchema";
+import { createCategorySchema } from "@/schemas/categorySchema";
 
 const CategoryForm = () => {
   const {

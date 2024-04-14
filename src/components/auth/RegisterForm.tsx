@@ -1,7 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { Button, Card, Input, Label } from "@/components/ui";
-import { registerSchema } from "@/app/schemas/authSchema";
+import { registerSchema } from "@/schemas/authSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 
