@@ -2,8 +2,9 @@ export { default } from "next-auth/middleware";
 
 export const config = {
   matcher: [
-    "/dashboard",
-    "/dashboard/categories/new",
-    "/dashboard/products/new",
+    "/dashboard/:path*", //Todas las rutas que vengas despues de /dashboard
+    // "/dashboard/profile",
+    // "/dashboard/categories/new",
+    // "/dashboard/products/new",
   ],
 };

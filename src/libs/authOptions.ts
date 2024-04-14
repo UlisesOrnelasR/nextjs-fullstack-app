@@ -21,6 +21,7 @@ export const authOptions: AuthOptions = {
             email,
           },
         });
+        console.log(userFound);
 
         if (!userFound) {
           throw new Error("User not found");
@@ -39,10 +40,34 @@ export const authOptions: AuthOptions = {
           id: userFound.id,
           name: userFound?.name,
           email: userFound?.email,
+          last_name: userFound?.last_name,
+          role: userFound?.role,
+          confirmed_email: userFound?.confirmed_email,
         };
       },
     }),
   ],
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) {
+        token = { ...token, ...user };
+      }
+
+      return token;
+    },
+    async session({ session, token }) {
+      // console.log("session", session);
+      // console.log("user", user);
+      console.log("token", token);
+      if (token) {
+        session.user = {
+          ...session.user,
+          ...token,
+        };
+      }
+      return session;
+    },
+  },
   pages: {
     signIn: "/auth/login",
   },
