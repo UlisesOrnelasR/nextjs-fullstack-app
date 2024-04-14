@@ -16,7 +16,7 @@ export const handler = NextAuth({
           password: string;
         };
 
-        const userFound = await prisma.user.findFirst({
+        const userFound = await prisma.user.findUnique({
           where: {
             email,
           },
