@@ -6,6 +6,7 @@ const Sidebar = () => {
   return (
     <div className="w-1/5 mt-2">
       <div className="bg-slate-300 h-full">
+        sidebar
         <ul>
           <li>
             <Button
