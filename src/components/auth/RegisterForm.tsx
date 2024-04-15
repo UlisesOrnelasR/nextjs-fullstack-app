@@ -1,11 +1,14 @@
 "use client";
+import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Card, Input, Label } from "@/components/ui";
 import { registerSchema } from "@/schemas/authSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { signIn } from "next-auth/react";
 
 const RegisterForm = () => {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -22,6 +25,27 @@ const RegisterForm = () => {
       },
       body: JSON.stringify(data),
     });
+
+    console.log(response);
+
+    if (!response.ok) {
+      const data = await response.json();
+      console.log(data);
+      return;
+    }
+
+    const result = await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    });
+
+    if (result.error) {
+      console.log(result.error);
+      return;
+    }
+
+    router.push("/dashboard");
   });
 
   return (
