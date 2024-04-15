@@ -43,8 +43,8 @@ model Product {
   category   Category? @relation(fields: [categoryId], references: [id])
   // category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade) Cuando se elimina el category 
   //se eliminan los productos que esten dentro de esa categoria
-  userId     Int?
-  user       User?     @relation(fields: [userId], references: [id])
+  authorId   Int
+  author     User      @relation(fields: [authorId], references: [id])
 }
 
 model Category {

@@ -1,7 +1,16 @@
+import { authOptions } from "@/libs/authOptions";
 import prisma from "@/libs/prisma";
+import { getServerSession } from "next-auth";
 
 const ProductsPage = async () => {
-  const products = await prisma.product.findMany();
+  const session = await getServerSession(authOptions);
+
+  const products = await prisma.product.findMany({
+    where: {
+      authorId: session?.user?.id,
+    },
+  });
+
   console.log(products);
 
   return (

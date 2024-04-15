@@ -24,8 +24,8 @@ Table Product {
   created_at DateTime [default: `now()`, not null]
   categoryId Int
   category Category
-  userId Int
-  user User
+  authorId Int [not null]
+  author User [not null]
 }
 
 Table Category {
@@ -38,4 +38,4 @@ Table Category {
 
 Ref: Product.categoryId > Category.id
 
-Ref: Product.userId > User.id
+Ref: Product.authorId > User.id

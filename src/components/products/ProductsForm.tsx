@@ -29,7 +29,7 @@ const ProductsForm = () => {
     const product = await res.json();
     console.log(product);
     router.push("/dashboard/products");
-    // router.refresh();  Refresca el cache en caso de que no aparezca
+    router.refresh();
     toast.success("Product created successfully");
   });
 
