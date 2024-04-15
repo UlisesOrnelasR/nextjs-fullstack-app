@@ -46,6 +46,7 @@ const RegisterForm = () => {
     }
 
     router.push("/dashboard");
+    router.refresh();
   });
 
   return (
