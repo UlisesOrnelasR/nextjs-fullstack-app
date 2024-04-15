@@ -3,8 +3,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Label, Input, Button } from "@/components/ui";
 import { createProductSchema } from "@/schemas/productSchema";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const ProductsForm = () => {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -24,6 +28,9 @@ const ProductsForm = () => {
     });
     const product = await res.json();
     console.log(product);
+    router.push("/dashboard/products");
+    // router.refresh();  Refresca el cache en caso de que no aparezca
+    toast.success("Product created successfully");
   });
 
   return (
