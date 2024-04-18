@@ -1,6 +1,6 @@
-export * from "./Button";
-export * from "./Card";
-export * from "./Input";
-export * from "./Label";
-export * from "./Modal";
-export * from "./Table";
+export { Button } from "./Button";
+export { Card } from "./Card";
+export { Label } from "./Label";
+export { Modal } from "./Modal";
+export { Input } from "./Input";
+export { Table } from "./Table";
