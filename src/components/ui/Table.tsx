@@ -6,12 +6,12 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 
-interface Props {
+interface TableProps {
   data: any;
   columns: any;
 }
 
-export function Table({ data, columns }: Props) {
+export function Table({ data, columns }: TableProps) {
   const table = useReactTable({
     data,
     columns,
