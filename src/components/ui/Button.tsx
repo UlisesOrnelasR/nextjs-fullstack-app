@@ -1,18 +1,35 @@
 import { twMerge } from "tailwind-merge";
 import { ButtonHTMLAttributes } from "react";
+import Link from "next/link";
 
 // interface Props {
 //   children: React.ReactNode;
 //   className?: string;
 // }
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  href?: string;
+}
 
-export const Button = ({ children, className, ...props }: Props) => {
+export const Button = ({ children, className, href, ...props }: Props) => {
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={twMerge(
+          "block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+          className
+        )}
+      >
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <button
       className={twMerge(
-        "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded",
+        "block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
         className
       )}
       {...props}

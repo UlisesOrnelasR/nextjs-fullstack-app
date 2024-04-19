@@ -26,4 +26,11 @@ export const createProductSchema = z.object({
       message: "The image should be a URL",
     })
     .optional(),
+  stock: z.string(),
+  slug: z
+    .string()
+    .min(1, {
+      message: "The slug must be contain 1 characters",
+    })
+    .max(255),
 });

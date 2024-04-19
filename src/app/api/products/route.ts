@@ -19,6 +19,8 @@ export async function POST(request: Request) {
       price: parseFloat(data.price),
       image: data.image,
       authorId: session.user.id,
+      stock: parseFloat(data.stock),
+      slug: data.slug,
       // categoryId: data.categoryId,
     },
   });

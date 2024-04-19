@@ -1,43 +1,46 @@
 import { authOptions } from "@/libs/authOptions";
 import prisma from "@/libs/prisma";
 import { getServerSession } from "next-auth";
+import { Button } from "@/components/ui";
+import ProductTable from "@/components/products/ProductTable";
 
-const ProductsPage = async () => {
+async function loadProducts() {
   const session = await getServerSession(authOptions);
-
   const products = await prisma.product.findMany({
     where: {
-      authorId: session?.user?.id,
+      authorId: session?.user.id,
     },
   });
+  return products;
+}
 
-  console.log(products);
+async function DashboardProductsPage() {
+  const products = await loadProducts();
 
   return (
-    <div>
-      <h1>List of products</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              <td>Nombre</td>
-              <td>Price</td>
-              <td>Stock</td>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product) => (
-            <tr key={product.id}>
-              <td>{product.name}</td>
-              <td>{product.price}</td>
-              <td>{product.stock}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-100">
+            Products
+          </h1>
+          <p className="mt-2 text-sm text-gray-100">List of products</p>
+        </div>
+        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <Button href="/dashboard/products/new">Create new product</Button>
+        </div>
+      </div>
+      <div className="mt-8 flow-root">
+        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+            <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+              <ProductTable products={products} />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
-};
+}
 
-export default ProductsPage;
+export default DashboardProductsPage;

@@ -117,9 +117,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                                 )
                             )}
 
-                            <Button onClick={() => signOut()}>
-                              Cerrar sesión
-                            </Button>
+                            <Button onClick={() => signOut()}>Sign Out</Button>
                           </ul>
                         </li>
                         <li>
@@ -209,7 +207,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                     )}
 
                     <li>
-                      <Button onClick={() => signOut()}>Cerrar sesión</Button>
+                      <Button onClick={() => signOut()}> Sign Out</Button>
                     </li>
                   </ul>
                 </li>

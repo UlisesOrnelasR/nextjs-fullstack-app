@@ -59,6 +59,14 @@ const ProductsForm = () => {
         {errors?.image && (
           <p className="text-red-500">{errors.image.message}</p>
         )}
+        <Label>Stock of product</Label>
+        <Input {...register("stock")} />
+        {errors?.stock && (
+          <p className="text-red-500">{errors.stock.message}</p>
+        )}
+        <Label>Slug of product</Label>
+        <Input {...register("slug")} />
+        {errors?.slug && <p className="text-red-500">{errors.slug.message}</p>}
         <Button className="block mt-2">Create product</Button>
       </form>
     </div>

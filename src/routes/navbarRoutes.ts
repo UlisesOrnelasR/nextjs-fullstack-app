@@ -6,7 +6,7 @@ import {
 
 export const navbarRoutes = [
   {
-    href: "/dashboard/products",
+    href: "/products",
     text: "Products",
     // auth: true,
   },
