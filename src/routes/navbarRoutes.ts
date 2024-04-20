@@ -42,14 +42,20 @@ export const dashboardRoutes = [
     icon: FolderIcon,
   },
   {
+    href: "/dashboard/products/new",
+    text: "Create Products",
+    roles: ["admin", "user"],
+    icon: FolderIcon,
+  },
+  {
     href: "/dashboard/categories",
-    text: "Categorias",
+    text: "Categories",
     roles: ["admin"],
     icon: ListBulletIcon,
   },
   {
     href: "/dashboard/categories/new",
-    text: "Crea Categoria",
+    text: "Create Category",
     roles: ["admin"],
     icon: FolderIcon,
   },

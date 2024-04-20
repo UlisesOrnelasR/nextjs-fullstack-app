@@ -10,27 +10,27 @@ interface Props {
 function UserTable({ users }: Props) {
   const columns = [
     {
-      header: "Nombre",
+      header: "Name",
       accessorKey: "name",
     },
     {
-      header: "Apellido",
+      header: "Lastname",
       accessorKey: "last_name",
     },
     {
-      header: "Correo",
+      header: "Email",
       accessorKey: "email",
     },
     {
-      header: "Correo confirmado",
+      header: "Confirmed email",
       accessorKey: "confirmed_email",
     },
     {
-      header: "Rol",
+      header: "Role",
       accessorKey: "role",
     },
     {
-      header: "Acciones",
+      header: "Actions",
       cell: () => {
         return (
           <div className="flex gap-x-2">
