@@ -14,7 +14,7 @@ const CategoryForm = () => {
   });
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data);
+    // console.log(data);
 
     const res = await fetch("/api/categories", {
       method: "POST",
@@ -24,7 +24,7 @@ const CategoryForm = () => {
       },
     });
     const category = await res.json();
-    console.log(category);
+    // console.log(category);
   });
 
   return (

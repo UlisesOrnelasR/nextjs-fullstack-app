@@ -2,16 +2,13 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import Link from "next/link";
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  CloudArrowUpIcon,
-  FingerPrintIcon,
-  LockClosedIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-import { CheckIcon } from "@heroicons/react/20/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { navbarRoutes } from "@/routes/navbarRoutes";
+import Image from "next/image";
+
+interface LandingLayoutProps {
+  children: React.ReactNode;
+}
 
 const footerNavigation = {
   solutions: [
@@ -40,7 +37,7 @@ const footerNavigation = {
   ],
 };
 
-const LandingLayout = ({ children }) => {
+const LandingLayout = ({ children }: LandingLayoutProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (

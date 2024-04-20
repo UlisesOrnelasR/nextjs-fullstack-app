@@ -10,7 +10,7 @@ export const authOptions: AuthOptions = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
+      async authorize(credentials: any): any {
         const { email, password } = credentials as {
           email: string;
           password: string;
@@ -21,7 +21,7 @@ export const authOptions: AuthOptions = {
             email,
           },
         });
-        console.log(userFound);
+        // console.log(userFound);
 
         if (!userFound) {
           throw new Error("User not found");
@@ -58,7 +58,7 @@ export const authOptions: AuthOptions = {
     async session({ session, token }) {
       // console.log("session", session);
       // console.log("user", user);
-      console.log("token", token);
+      // console.log("token", token);
       if (token) {
         session.user = {
           ...session.user,
