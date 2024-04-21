@@ -10,7 +10,7 @@ export const authOptions: AuthOptions = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials: any): any {
+      async authorize(credentials: any) {
         const { email, password } = credentials as {
           email: string;
           password: string;
@@ -37,7 +37,7 @@ export const authOptions: AuthOptions = {
         }
 
         return {
-          id: userFound.id,
+          id: userFound.id + "",
           name: userFound?.name,
           email: userFound?.email,
           last_name: userFound?.last_name,
@@ -63,7 +63,7 @@ export const authOptions: AuthOptions = {
         session.user = {
           ...session.user,
           ...token,
-        };
+        } as any;
       }
       return session;
     },

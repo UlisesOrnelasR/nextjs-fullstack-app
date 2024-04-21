@@ -23,7 +23,8 @@ const CategoryForm = () => {
         "Content-Type": "application/json",
       },
     });
-    const category = await res.json();
+    await res.json();
+    // const category = await res.json();
     // console.log(category);
   });
 
@@ -32,11 +33,13 @@ const CategoryForm = () => {
       <form onSubmit={onSubmit}>
         <Label>Name of category</Label>
         <Input {...register("name")} />
-        {errors?.name && <p className="text-red-500">{errors.name.message}</p>}
+        {errors?.name && (
+          <p className="text-red-500">{errors.name.message as string} </p>
+        )}
         <Label>Description of category</Label>
         <Input {...register("description")} />
         {errors?.description && (
-          <p className="text-red-500">{errors.description.message}</p>
+          <p className="text-red-500">{errors.description.message as string}</p>
         )}
 
         <Label>Published</Label>

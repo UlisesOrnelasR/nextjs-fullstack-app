@@ -4,12 +4,14 @@ import { getServerSession } from "next-auth";
 import { Button } from "@/components/ui";
 import ProductTable from "@/components/products/ProductTable";
 
+export const dynamic = "force-dynamic";
+
 // Esta función puede ser un unit test
 async function loadProducts() {
   const session = await getServerSession(authOptions);
   const products = await prisma.product.findMany({
     where: {
-      authorId: session?.user.id,
+      authorId: Number(session?.user.id),
     },
   });
   return products;

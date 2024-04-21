@@ -20,7 +20,7 @@ const LoginForm = () => {
   });
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data);
+    // console.log(data);
     setError("");
 
     const result = await signIn("credentials", {
@@ -29,10 +29,11 @@ const LoginForm = () => {
       redirect: false,
     });
 
-    if (!result?.ok) {
-      setError(result?.error);
+    if (result?.error) {
+      setError(result.error);
       return;
     }
+
     router.push("/dashboard");
     router.refresh();
   });
@@ -48,7 +49,9 @@ const LoginForm = () => {
         <h3 className="text-2xl font-bold text-center mb-4">Login</h3>
         <Label>Email</Label>
         <Input type="emil" placeholder="Email" {...register("email")} />
-        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+        {errors.email && (
+          <p className="text-red-500">{errors.email.message as string}</p>
+        )}
         <Label>Password</Label>
         <Input
           type="password"
@@ -56,7 +59,7 @@ const LoginForm = () => {
           {...register("password")}
         />
         {errors.password && (
-          <p className="text-red-500">{errors.password.message}</p>
+          <p className="text-red-500">{errors.password.message as string}</p>
         )}
         <Button type="submit" className="block mt-2 w-full">
           Login

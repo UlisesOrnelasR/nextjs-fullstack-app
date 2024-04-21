@@ -8,17 +8,17 @@ export const navbarRoutes = [
   {
     href: "/products",
     text: "Products",
-    // auth: true,
+    auth: false,
   },
   {
     href: "/auth/login",
     text: "Login",
-    // auth: false,
+    auth: false,
   },
   {
     href: "/auth/register",
     text: "Register",
-    // auth: false,
+    auth: false,
   },
 ];
 

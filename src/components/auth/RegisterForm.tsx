@@ -29,7 +29,8 @@ const RegisterForm = () => {
     // console.log(response);
 
     if (!response.ok) {
-      const data = await response.json();
+      await response.json();
+      // const data = await response.json();
       // console.log(data);
       return;
     }
@@ -40,8 +41,8 @@ const RegisterForm = () => {
       redirect: false,
     });
 
-    if (result.error) {
-      console.log(result.error);
+    if (result?.error) {
+      // console.log(result.error);
       return;
     }
 
@@ -55,15 +56,19 @@ const RegisterForm = () => {
         <h3 className="text-2xl font-bold text-center mb-4">SignUp</h3>
         <Label>Name</Label>
         <Input type="text" placeholder="Name" {...register("name")} />
-        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+        {errors.name && (
+          <p className="text-red-500">{errors.name.message as string}</p>
+        )}
         <Label>LastName</Label>
         <Input type="text" placeholder="LastName" {...register("lastname")} />
         {errors.lastname && (
-          <p className="text-red-500">{errors.lastname.message}</p>
+          <p className="text-red-500">{errors.lastname.message as string}</p>
         )}
         <Label>Email</Label>
         <Input type="emil" placeholder="Email" {...register("email")} />
-        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+        {errors.email && (
+          <p className="text-red-500">{errors.email.message as string}</p>
+        )}
         <Label>Password</Label>
         <Input
           type="password"
@@ -71,7 +76,7 @@ const RegisterForm = () => {
           {...register("password")}
         />
         {errors.password && (
-          <p className="text-red-500">{errors.password.message}</p>
+          <p className="text-red-500">{errors.password.message as string}</p>
         )}
         <Button type="submit" className="block mt-2 w-full">
           SignUp

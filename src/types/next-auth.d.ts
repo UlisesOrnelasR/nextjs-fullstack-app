@@ -12,7 +12,7 @@ declare module "next-auth" {
       email: string;
       image: string;
       id: number;
-      lastname: string;
+      last_name: string;
       role: string;
       confirmed_email: boolean;
     };

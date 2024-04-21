@@ -8,7 +8,7 @@ interface ProductTableProps {
 }
 
 function ProductTable({ products }: ProductTableProps) {
-  console.log(products);
+  // console.log(products);
   const columns = [
     {
       header: "Name",

@@ -2,6 +2,8 @@ import prisma from "@/libs/prisma";
 import { Button } from "@/components/ui";
 import UserTable from "@/components/users/UserTable";
 
+export const dynamic = "force-dynamic";
+
 const DashboardUsersPage = async () => {
   const users = await prisma.user.findMany();
 

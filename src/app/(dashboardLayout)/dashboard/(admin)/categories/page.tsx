@@ -2,9 +2,11 @@ import prisma from "@/libs/prisma";
 import { Button } from "@/components/ui";
 import CategoriesTable from "@/components/categories/CategoriesTable";
 
+export const dynamic = "force-dynamic";
+
 const DashboardCategoriesPage = async () => {
   const categories = await prisma.category.findMany();
-  console.log(categories);
+  // console.log(categories);
 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
